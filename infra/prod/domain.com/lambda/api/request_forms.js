@@ -6,7 +6,7 @@ const generateRoutes = function() {
 
     var request_forms = express.Router();
 
-    let seRoute = require('./handlers/test'); // @NOTE: This is where it is breaking, this file is not being picked up and included in the final bundle
+    let seRoute = require('./handlers/example_handler'); // @NOTE: This is where it is breaking, this file is not being picked up and included in the final bundle
     request_forms.post('/social-engineering', seRoute);
 
     return request_forms;

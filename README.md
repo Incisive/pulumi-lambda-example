@@ -1,0 +1,6 @@
+The lambda is being created in `infra/api.js`.  In the file `infra/lambda/api/request_forms.js:9` there is a require in the runtime code that is resulting in the following error when the lambda is invoked:
+
+```
+ERROR	Invoke Error 	{"errorType":"Error","errorMessage":"Cannot find module './handlers/example_handler'\nRequire stack:\n- /var/task/__index.js\n- /var/runtime/UserFunction.js\n- /var/runtime/index.js","code":"MODULE_NOT_FOUND","requireStack":["/var/task/__index.js","/var/runtime/UserFunction.js","/var/runtime/index.js"],"stack":["Error: Cannot find module './handlers/example_handler'","Require stack:","- /var/task/__index.js","- /var/runtime/UserFunction.js","- /var/runtime/index.js","    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:793:17)","    at Function.Module._load (internal/modules/cjs/loader.js:686:27)","    at Module.require (internal/modules/cjs/loader.js:848:19)","    at require (internal/modules/cjs/helpers.js:74:18)","    at Object.<anonymous> (/var/task/__index.js:152:19)","    at Object.__f0 [as generateRoutes] (/var/task/__index.js:160:34)","    at Runtime.<anonymous> (/var/task/__index.js:197:43)","    at Runtime.__atsApi [as handler] (/var/task/__index.js:204:34)","    at Runtime.handleOnce (/var/runtime/Runtime.js:66:25)"]}
+
+```

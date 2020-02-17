@@ -1,4 +1,3 @@
-
 const generateRoutes = function() {
     var express = require('express');
     const AWS = require('aws-sdk');

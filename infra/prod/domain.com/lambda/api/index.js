@@ -1,4 +1,6 @@
 const requestForms = require('./request_forms');
+const winston = require('winston');
+const expressWinston = require('express-winston');
 
 exports.handler = async function(event, context) {
     const awsServerlessExpress = require('aws-serverless-express');
@@ -24,7 +26,7 @@ exports.handler = async function(event, context) {
     router.use(bodyParser.json());
     router.use(bodyParser.urlencoded({ extended: true }));
     router.use(awsServerlessExpressMiddleware.eventContext());
-
+    
     app.use('/', router);
     app.use('/api/requests', requestForms.generateRoutes());
     const server = awsServerlessExpress.createServer(app);
